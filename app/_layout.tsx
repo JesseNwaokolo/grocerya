@@ -1,24 +1,39 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import { Stack } from "expo-router";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import * as SplashScreen from "expo-splash-screen";
+import * as Font from "expo-font";
+import { useEffect, useState } from "react";
+import { StatusBar } from "react-native";
+import SimulatedSplashScreen from "@/components/splash-screen/SimulatedSplashScreen";
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+// SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  const [appReady, setAppReady] = useState(false);
+
+  const [loaded] = Font.useFonts({
+    PoppinsLight: require("@/assets/fonts/Poppins-Light.ttf"),
+    PoppinsRegular: require("@/assets/fonts/Poppins-Regular.ttf"),
+    PoppinsMedium: require("@/assets/fonts/Poppins-Medium.ttf"),
+    PoppinsSemiBold: require("@/assets/fonts/Poppins-SemiBold.ttf"),
+    PoppinsBold: require("@/assets/fonts/Poppins-Bold.ttf"),
+    PoppinsExtraBold: require("@/assets/fonts/Poppins-ExtraBold.ttf"),
+  });
+
+  useEffect(() => {
+    if (!loaded) return;
+    // SplashScreen.hideAsync();
+     setAppReady(true);
+  }, [loaded]);
+
+  if (!appReady) {
+    return <SimulatedSplashScreen />;
+  }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <StatusBar barStyle={"dark-content"} />
+      <Stack screenOptions={{ headerShown: false }} />
+    </SafeAreaProvider>
   );
 }
