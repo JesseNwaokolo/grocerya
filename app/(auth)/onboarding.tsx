@@ -12,6 +12,7 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { FONTS } from "../themes/theme";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
@@ -158,7 +159,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontFamily: "PoppinsSemiBold",
+    fontFamily: FONTS.semiBold,
     marginBottom: 8,
     textAlign: "center",
     color: "#0D0D0D",
@@ -167,7 +168,7 @@ const styles = StyleSheet.create({
   content: {
     fontSize: 16,
     color: "#777777",
-    fontFamily: "Poppins",
+    fontFamily: FONTS.regular,
     textAlign: "center",
   },
 });

@@ -1,15 +1,14 @@
-import { Stack } from "expo-router";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
-import { useEffect, useState } from "react";
-import { StatusBar } from "react-native";
-import SimulatedSplashScreen from "@/components/splash-screen/SimulatedSplashScreen";
+import { Stack, useRouter } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
+import { StatusBar } from "expo-status-bar";
+import { useEffect } from "react";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
-// SplashScreen.preventAutoHideAsync();
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const [appReady, setAppReady] = useState(false);
+  const router = useRouter();
 
   const [loaded] = Font.useFonts({
     PoppinsLight: require("@/assets/fonts/Poppins-Light.ttf"),
@@ -22,17 +21,14 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (!loaded) return;
-    // SplashScreen.hideAsync();
-     setAppReady(true);
+    // if has not seen Onbaording navigate to it
+    router.replace("/(auth)/onboarding");
+    SplashScreen.hideAsync();
   }, [loaded]);
-
-  if (!appReady) {
-    return <SimulatedSplashScreen />;
-  }
 
   return (
     <SafeAreaProvider>
-      <StatusBar barStyle={"dark-content"} />
+      <StatusBar style="dark" />
       <Stack screenOptions={{ headerShown: false }} />
     </SafeAreaProvider>
   );

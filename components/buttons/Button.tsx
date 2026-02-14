@@ -1,5 +1,5 @@
-import { ButtonProps, Text, TouchableOpacity } from "react-native";
-interface IButtonProps extends ButtonProps {
+import {  Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
+interface IButtonProps extends TouchableOpacityProps {
   title: string;
   variant?: "primary" | "secondary";
 }
