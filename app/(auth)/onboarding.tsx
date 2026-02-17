@@ -12,7 +12,7 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { FONTS } from "../themes/theme";
+import { FONTS } from "@/themes/theme";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
