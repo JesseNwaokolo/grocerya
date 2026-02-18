@@ -1,5 +1,5 @@
 import * as Font from "expo-font";
-import { Stack, useRouter } from "expo-router";
+import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
@@ -8,7 +8,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const router = useRouter();
+
 
   const [loaded] = Font.useFonts({
     PoppinsLight: require("@/assets/fonts/Poppins-Light.ttf"),
@@ -21,10 +21,9 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (!loaded) return;
-    // if has not seen Onbaording navigate to it
-    router.replace("/(auth)/onboarding");
     SplashScreen.hideAsync();
   }, [loaded]);
+
 
   return (
     <SafeAreaProvider>
