@@ -1,4 +1,3 @@
-// src/components/CustomDrawerContent.tsx
 import { FONTS } from "@/themes/theme";
 import { DrawerContentScrollView } from "@react-navigation/drawer";
 import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
@@ -14,8 +13,8 @@ export default function CustomDrawerContent(props: any) {
           }}
           style={styles.avatar}
         />
-        <Text style={styles.name}>John Doe</Text>
-        <Text style={styles.email}>john@example.com</Text>
+        <Text style={styles.name}>Jesse Nwaokolo</Text>
+        <Text style={styles.email}>jesse@example.com</Text>
 
         {/* Drawer links */}
         <TouchableOpacity style={styles.item}>
@@ -38,7 +37,7 @@ export default function CustomDrawerContent(props: any) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1},
+  container: { flex: 1 },
   avatar: { width: 64, height: 64, borderRadius: 32, marginBottom: 12 },
   name: { fontSize: 18, fontFamily: FONTS.semiBold },
   email: { color: "#888", marginBottom: 24, fontFamily: FONTS.light },

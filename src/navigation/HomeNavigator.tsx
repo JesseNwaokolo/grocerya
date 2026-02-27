@@ -19,7 +19,6 @@ const TABS = [
 
 function CustomTabBar({ state, navigation }: any) {
   const { bottom } = useSafeAreaInsets();
-  // console.log("state",state)
   return (
     <View
       style={[styles.tabBarWrapper, { paddingBottom: bottom, paddingTop: 16 }]}

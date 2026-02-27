@@ -1,3 +1,4 @@
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Onboarding from "@/src/screens/onboarding";
 import { NavigationContainer, NavigatorScreenParams } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -52,6 +53,8 @@ export default function App() {
   if (!loaded) return null;
 
   return (
+     <GestureHandlerRootView style={{ flex: 1 }}>
+
     <SafeAreaProvider>
       <StatusBar barStyle={"dark-content"} />
       <NavigationContainer>
@@ -71,5 +74,6 @@ export default function App() {
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
+     </GestureHandlerRootView>
   );
 }
