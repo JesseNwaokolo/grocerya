@@ -22,7 +22,7 @@ const Otp = () => {
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={{ flex: 1 }}
-        keyboardVerticalOffset={20}
+        // keyboardVerticalOffset={20}
       >
         <View style={{ flex: 1 }}>
           <View style={{ flex: 1 }}>

@@ -6,6 +6,10 @@ import BackIcon from "./back-icon";
 import QuestionMarkIcon from "./question-mark-icon";
 import MapIcon from "./map-icon";
 import PhoneIcon from "./phone-icon";
+import HomeIcon from "./home-icon";
+import BagIcon from "./bag-icon";
+import FavouriteIcon from "./favourite-icon";
+import ProfileIcon from "./profile-icon";
 
 export {
   CartIcon,
@@ -16,4 +20,8 @@ export {
   QuestionMarkIcon,
   MapIcon,
   PhoneIcon,
+  HomeIcon,
+  BagIcon,
+  FavouriteIcon,
+  ProfileIcon,
 };

@@ -1,15 +1,25 @@
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as Font from "expo-font";
-import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import Index from "./index";
+import Onbaording from "./(auth)/onboarding";
 
 SplashScreen.preventAutoHideAsync();
 
+const Stack = createNativeStackNavigator();
+
+function RootStack() {
+  return (
+    <Stack.Navigator initialRouteName="onboarding">
+      <Stack.Screen name="index" component={Index} />
+      <Stack.Screen name="onboarding" component={Onbaording} />
+    </Stack.Navigator>
+  );
+}
+
 export default function RootLayout() {
-
-
   const [loaded] = Font.useFonts({
     PoppinsLight: require("@/assets/fonts/Poppins-Light.ttf"),
     PoppinsRegular: require("@/assets/fonts/Poppins-Regular.ttf"),
@@ -24,11 +34,11 @@ export default function RootLayout() {
     SplashScreen.hideAsync();
   }, [loaded]);
 
+   if (!loaded) return null;
 
   return (
-    <SafeAreaProvider>
-      <StatusBar style="dark" />
-      <Stack screenOptions={{ headerShown: false }} />
-    </SafeAreaProvider>
+    <NavigationContainer>
+      <RootStack />
+    </NavigationContainer>
   );
 }
