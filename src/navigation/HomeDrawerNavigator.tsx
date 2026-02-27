@@ -11,7 +11,8 @@ export default function HomeDrawerNavigator() {
         headerShown: false,
         drawerPosition: "left",
         swipeEnabled: true,
-        swipeEdgeWidth: 100,
+        swipeEdgeWidth: 200,
+        drawerType :"slide"
       }}
     >
       <Drawer.Screen name="tabs" component={HomeNavigator} />

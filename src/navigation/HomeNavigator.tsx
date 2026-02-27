@@ -1,7 +1,12 @@
-import { BagIcon, FavouriteIcon, HomeIcon, ProfileIcon } from "@/components/icons";
+import {
+  BagIcon,
+  FavouriteIcon,
+  HomeIcon,
+  ProfileIcon,
+} from "@/components/icons";
 import { FONTS } from "@/themes/theme";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import Cart from "../screens/home/cart";
 import Favourite from "../screens/home/favourite";
@@ -27,9 +32,9 @@ function CustomTabBar({ state, navigation }: any) {
         {state.routes.map((route: any, index: number) => {
           const isActive = state.index === index;
           const tab = TABS[index];
-          const Icon = tab.icon
+          const Icon = tab.icon;
           return (
-            <TouchableOpacity
+            <Pressable
               key={route.key}
               onPress={() => navigation.navigate(route.name)}
               style={[styles.tabItem, isActive && styles.activeTabItem]}
@@ -40,7 +45,7 @@ function CustomTabBar({ state, navigation }: any) {
                   {route.name.charAt(0).toUpperCase() + route.name.slice(1)}
                 </Text>
               )}
-            </TouchableOpacity>
+            </Pressable>
           );
         })}
       </View>

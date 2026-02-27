@@ -1,36 +1,53 @@
 import { FONTS } from "@/themes/theme";
-import { DrawerContentScrollView } from "@react-navigation/drawer";
-import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  DrawerContentComponentProps,
+  DrawerContentScrollView,
+} from "@react-navigation/drawer";
+import { Image } from "expo-image";
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  View
+} from "react-native";
 
-export default function CustomDrawerContent(props: any) {
+export default function CustomDrawerContent(
+  props: DrawerContentComponentProps,
+) {
   return (
     <DrawerContentScrollView {...props}>
       <View style={styles.container}>
         {/* Profile section */}
-        <Image
-          source={{
-            uri: "https://static.vecteezy.com/system/resources/thumbnails/005/346/410/small/close-up-portrait-of-smiling-handsome-young-caucasian-man-face-looking-at-camera-on-isolated-light-gray-studio-background-photo.jpg",
-          }}
-          style={styles.avatar}
-        />
+        <View>
+          <Image
+            source={{
+              uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSolO3gMJCbvwCa7YtpaZDfyZ4CKasuqvj6qg&s",
+            }}
+            style={styles.avatar}
+            placeholder={
+              "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTd4AZxrll0-kGt2oi0eyMa-nwDhJH2kYOHwTl3JGRCw-f25TUK"
+            }
+          />
+        </View>
+
         <Text style={styles.name}>Jesse Nwaokolo</Text>
         <Text style={styles.email}>jesse@example.com</Text>
 
         {/* Drawer links */}
-        <TouchableOpacity style={styles.item}>
+        <Pressable style={styles.item}>
           <Text style={styles.text}>Home</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.item}>
+        </Pressable>
+        <Pressable style={styles.item}>
           <Text style={styles.text}>Cart</Text>
-        </TouchableOpacity>
+        </Pressable>
 
-        <TouchableOpacity style={styles.item}>
+        <Pressable style={styles.item}>
           <Text style={styles.text}>Favourite</Text>
-        </TouchableOpacity>
+        </Pressable>
 
-        <TouchableOpacity style={styles.item}>
+        <Pressable style={styles.item}>
           <Text style={styles.text}>Profile</Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     </DrawerContentScrollView>
   );
